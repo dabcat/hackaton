@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 import Home from './containers/Home/Home';
+import Dashboard from './containers/Dashboard/Dashboard';
 import Chat from './containers/Chat/Chat';
 
 import Layout from './components/Layout/Layout';
@@ -18,6 +19,7 @@ class App extends Component {
           <Header></Header>
           <div className="App">
             <Route exact path="/" component={Home} />
+            <Route path="/dashboard" component={Dashboard} />
             <Route path="/chat" component={Chat} />
           </div>
         </Layout>

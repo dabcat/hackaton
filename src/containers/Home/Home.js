@@ -37,14 +37,12 @@ class Home extends Component {
                     <p>
                         Time for some fitness sessions with your favorite coach ;)
                     </p>
-                </Jumbotron>;
+                </Jumbotron>
                 <Form>
                     <InputField type="text" placeholder="Please login" onInput={(val) => this.handleUser(val)} />
                     <Button variant="primary" onClick={() => this.doLogin()}>Login</Button>
                 </Form>
                 <Button variant="primary" onClick={() => this.getConnections()}>.!.</Button>
-                <Headline text="Recent conversations" />
-                <QuestionGroup />
             </div>
         )
     }
