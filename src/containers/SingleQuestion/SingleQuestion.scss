@@ -1,0 +1,35 @@
+.single-question {
+    text-align: left;
+    border-bottom: 1px solid black;
+    padding: 20px 0;
+
+    &__date {
+        padding-bottom: 10px;
+    }
+    &__chat-with {
+        text-align: right;
+        padding-bottom: 10px;
+    }
+    &__question {
+    }
+    &__answer {
+        margin-top: 20px;
+    }
+    &__link {
+        align-self: center;
+        text-align: center;
+
+        a {
+            width: 30px;
+            height: 30px;
+            padding: 10px 15px;
+            border: 1px solid black;
+            text-decoration: none;
+
+            &:hover {
+                background: black;
+                color: white;
+            }
+        }
+    }
+}
