@@ -1,5 +1,4 @@
-const basePort = '3000';
-const baseApi = `http://localhost:${basePort}`;
+const baseApi = `http://hackathon.ralekhs.com`;
 
 export default function Api() {
 
@@ -9,10 +8,17 @@ export default function Api() {
             .catch((err) => handleError(err))
     }
 
+    function getConnections(email) {
+        return fetch(`${baseApi}/connections`, postMethod({ email: email }))
+            .then(val => handleResults(val))
+            .catch((err) => handleError(err))
+    }
+
     function postMethod(payload) {
         return {
             method: 'POST',
             body: JSON.stringify(payload),
+            // mode: "no-cors", // no-cors, cors, *same-origin
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -29,6 +35,7 @@ export default function Api() {
     }
 
     return {
-        login: login
+        login: login,
+        getConnections: getConnections
     }
 }

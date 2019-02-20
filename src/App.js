@@ -7,7 +7,6 @@ import './App.css';
 import Home from './containers/Home/Home';
 import Chat from './containers/Chat/Chat';
 
-import Button from 'react-bootstrap/Button';
 import Layout from './components/Layout/Layout';
 import Header from './components/Header/Header';
 
@@ -18,8 +17,6 @@ class App extends Component {
         <Layout>
           <Header></Header>
           <div className="App">
-            <Button variant="primary">Primary</Button>
-            <Button variant="secondary">Secondary</Button>
             <Route exact path="/" component={Home} />
             <Route path="/chat" component={Chat} />
           </div>

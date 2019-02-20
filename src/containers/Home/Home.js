@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Headline from '../Headline/Headline';
 import QuestionGroup from '../QuestionGroup/QuestionGroup';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Jumbotron } from 'react-bootstrap';
 import InputField from '../../components/InputField/InputField';
 import Api from '../../services/Api';
 
@@ -16,12 +16,14 @@ class Home extends Component {
     }
 
     doLogin() {
-        console.log('login');
         ApiInit.login(this.state.user);
     }
 
+    getConnections() {
+        ApiInit.getConnections(this.state.user)
+    }
+
     handleUser = (val) => {
-        console.log(val)
         this.setState({
             user: val
         })
@@ -30,12 +32,19 @@ class Home extends Component {
     render() {
         return (
             <div>
+                <Jumbotron>
+                    <h1>Welcome to FitnessPal!</h1>
+                    <p>
+                        Time for some fitness sessions with your favorite coach ;)
+                    </p>
+                </Jumbotron>;
                 <Form>
                     <InputField type="text" placeholder="Please login" onInput={(val) => this.handleUser(val)} />
                     <Button variant="primary" onClick={() => this.doLogin()}>Login</Button>
                 </Form>
+                <Button variant="primary" onClick={() => this.getConnections()}>.!.</Button>
                 <Headline text="Questions" />
-                <QuestionGroup/>
+                <QuestionGroup />
             </div>
         )
     }
