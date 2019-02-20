@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+
+import Home from './containers/Home/Home';
+import Chat from './containers/Chat/Chat';
 
 import Button from 'react-bootstrap/Button';
 import Layout from './components/Layout/Layout';
@@ -10,27 +14,17 @@ import Header from './components/Header/Header';
 class App extends Component {
   render() {
     return (
-      <Layout>
-        <Header></Header>
-        <div className="App">
-          <Button variant="primary">Primary</Button>
-          <Button variant="secondary">Secondary</Button>
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-          </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-          </a>
-          </header>
-        </div>
-      </Layout>
+      <Router>
+        <Layout>
+          <Header></Header>
+          <div className="App">
+            <Button variant="primary">Primary</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Route exact path="/" component={Home} />
+            <Route path="/chat" component={Chat} />
+          </div>
+        </Layout>
+      </Router>
     );
   }
 }
