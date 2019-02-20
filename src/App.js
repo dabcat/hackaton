@@ -18,8 +18,6 @@ class App extends Component {
         <Layout>
           <Header></Header>
           <div className="App">
-            <Button variant="primary">Primary</Button>
-            <Button variant="secondary">Secondary</Button>
             <Route exact path="/" component={Home} />
             <Route path="/chat" component={Chat} />
           </div>
