@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './QuestionGroup.scss';
 import SingleQuestion from '../SingleQuestion/SingleQuestion';
+import { Button } from 'react-bootstrap';
 
 class QuestionGroup extends Component {
     render() {
@@ -18,11 +19,12 @@ class QuestionGroup extends Component {
                 <SingleQuestion
                     chatPerson="Chris Z."
                     profession="Senior Fitness Trainer"
-                    dateAsked="February 28th 2019"
+                    dateAsked="February 11th 2019"
                     question="I feel often unmotivated. What should I do?"
                     lastMessageSender="You"
                     lastAnswer="Well yeah, I tried that"
                     link="/chat#asdfasdf" />
+                <Button className="question-group__link" href="/chat">See all</Button>
             </div>
         )
     }
