@@ -34,7 +34,7 @@ class Home extends Component {
                     <InputField type="text" placeholder="Please login" onInput={(val) => this.handleUser(val)} />
                     <Button variant="primary" onClick={() => this.doLogin()}>Login</Button>
                 </Form>
-                <Headline text="Questions" />
+                <Headline text="Recent conversations" />
                 <QuestionGroup/>
             </div>
         )
