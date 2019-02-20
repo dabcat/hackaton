@@ -22,7 +22,7 @@ class SingleQuestion extends Component {
                         </div>
                     </div>
                     <div className="col-lg-3 single-question__link">
-                        <Button variant="primary">open Chat</Button>
+                        <Button variant="success" href={this.props.link}>open Chat</Button>
                     </div>
                 </div>
             </div>

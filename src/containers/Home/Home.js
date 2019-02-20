@@ -43,7 +43,7 @@ class Home extends Component {
                     <Button variant="primary" onClick={() => this.doLogin()}>Login</Button>
                 </Form>
                 <Button variant="primary" onClick={() => this.getConnections()}>.!.</Button>
-                <Headline text="Questions" />
+                <Headline text="Recent conversations" />
                 <QuestionGroup />
             </div>
         )

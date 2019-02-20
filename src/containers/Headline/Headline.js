@@ -6,9 +6,11 @@ class QuestionGroup extends Component {
     render() {
         return (
             <div className="headline">
-                {this.props.text}
+                <h2>
+                    {this.props.text}
+                </h2>
             </div>
-        )
+        );
     }
 }
 
