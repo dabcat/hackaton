@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
-import Headline from '../Headline/Headline';
-import QuestionGroup from '../QuestionGroup/QuestionGroup';
+import { connect } from 'react-redux';
 import { Button, Form, Jumbotron, Alert } from 'react-bootstrap';
 import InputField from '../../components/InputField/InputField';
 import Api from '../../services/Api';
+import { actionGetUser, actionLoginUser } from './actions';
 
 const ApiInit = Api();
 
 class Home extends Component {
 
     componentDidMount() {
-        this.setState({
-            user: null,
-            error: null,
-        })
+        this.setState({ user: [this.props.dispatch(actionGetUser())] });
+        // this.setState({
+        //     user: null,
+        //     error: null,
+        // })
     }
 
     doLogin() {
         ApiInit.login(this.state.user).then((res) => {
             if (res) {
+                this.props.dispatch(actionLoginUser(res));
                 this.props.history.push('/dashboard')
             } else {
                 this.setState({ error: 'User not found!' })
@@ -58,4 +60,9 @@ class Home extends Component {
     }
 }
 
-export default Home;
+
+const mapState = state => ({
+    user: state.user
+});
+
+export default connect(mapState)(Home);

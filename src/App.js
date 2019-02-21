@@ -14,17 +14,20 @@ import Layout from './components/Layout/Layout';
 import Header from './components/Header/Header';
 
 class App extends Component {
+  userLoggedin(user) {
+    console.log(user)
+  }
   render() {
     return (
       <Router>
         <Layout>
           <Header></Header>
           <div className="App">
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" render={(props) => <Home {...props} handleUser={(user) => this.userLoggedin(user)} />} />
             <Route path="/dashboard" component={Dashboard} />
             <Route exact path="/chat" component={Chat} />
-            <Route path="/chat/1" component={ConversationOne}  />
-            <Route path="/chat/2" component={ConversationTwo}  />
+            <Route path="/chat/1" component={ConversationOne} />
+            <Route path="/chat/2" component={ConversationTwo} />
           </div>
         </Layout>
       </Router>
