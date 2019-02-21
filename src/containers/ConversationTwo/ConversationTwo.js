@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import 'react-chat-elements/dist/main.css';
 import { MessageBox, MessageList } from 'react-chat-elements';
-import Headline from '../Headline/Headline';
 import Layout from '../../components/Layout/Layout';
+import ChatHeadlineIcon from '../ChatHeadlineIcon/ChatHeadlineIcon';
+import ChatInput from '../ChatInput/ChatInput';
+import ScheduleImage from '../../assets/images/schedule.png';
 import Header from '../Header/Header';
 
 class ConversationTwo extends Component {
@@ -11,9 +13,7 @@ class ConversationTwo extends Component {
             <Layout>
                 <Header></Header>
                 <div>
-                    <Headline>
-                        Conversation with Ratko
-                    </Headline>
+                    <ChatHeadlineIcon chatPerson="Chris"/>
                     <MessageList
                         className='message-list'
                         lockable={true}
@@ -41,15 +41,16 @@ class ConversationTwo extends Component {
                     <MessageBox
                         position={'left'}
                         type={'photo'}
-                        text={'react.svg'}
+                        text={'training-schedule.png'}
                         date={new Date('21/February/2019')}
                         data={{
-                            uri: 'https://facebook.github.io/react/img/logo.svg',
+                            uri: `${ScheduleImage}`,
                             status: {
                                 click: false,
                                 loading: 0,
                             },
                         }} />
+                    <ChatInput />
                 </div>
             </Layout>
         );

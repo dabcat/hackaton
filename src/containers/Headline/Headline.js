@@ -4,8 +4,13 @@ import './Headline.scss';
 
 class Headline extends Component {
     render() {
+        let classes = ['headline'];
+        if (this.props.wrapperClasses) {
+            classes.push(this.props.wrapperClasses);
+        }
+
         return (
-            <div className="headline">
+            <div className={classes.join(' ')}>
                 <h2>
                     {this.props.children}
                 </h2>

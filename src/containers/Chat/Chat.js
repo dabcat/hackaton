@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import Headline from '../Headline/Headline';
 import QuestionGroup from '../QuestionGroup/QuestionGroup';
 import { Row } from 'react-bootstrap';
+import './Chat.scss';
 
 class Chat extends Component {
     render() {
