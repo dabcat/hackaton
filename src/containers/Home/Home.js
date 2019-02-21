@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Jumbotron } from 'react-bootstrap';
+import { Alert, Button, Form, Jumbotron } from 'react-bootstrap';
 import InputField from '../../components/InputField/InputField';
 import Api from '../../services/Api';
 import './Home.scss';
