@@ -18,5 +18,11 @@
     &__link {
         align-self: flex-end;
         text-align: right;
+
+        img {
+            position: relative;
+            top: -1px;
+            right: -2px;
+        }
     }
 }
