@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Button, Form, Jumbotron, Alert } from 'react-bootstrap';
 import InputField from '../../components/InputField/InputField';
 import Api from '../../services/Api';
-import { actionGetUser, actionLoginUser } from './actions';
+import { actionGetUser, actionLoginUser, actionLoginError } from './actions';
 import './Home.scss';
 import logo from '../../assets/images/fullLogo.png';
 
@@ -13,19 +13,16 @@ class Home extends Component {
 
     componentDidMount() {
         this.setState({ user: [this.props.dispatch(actionGetUser())] });
-        // this.setState({
-        //     user: null,
-        //     error: null,
-        // })
     }
 
     doLogin() {
         ApiInit.login(this.state.user).then((res) => {
-            if (res) {
+            if (res.message === 'User doesnt exist') {
+                this.props.dispatch(actionLoginError());
+                this.setState({ error: 'User not found!' })
+            } else {
                 this.props.dispatch(actionLoginUser(res));
                 this.props.history.push('/dashboard')
-            } else {
-                this.setState({ error: 'User not found!' })
             }
         });
     }
