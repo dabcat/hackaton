@@ -5,10 +5,16 @@ import SingleQuestion from '../SingleQuestion/SingleQuestion';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+
 class QuestionGroup extends Component {
     render() {
+        let classes = ['question-group'];
+        if (this.props.wrapperClasses) {
+            classes.push(this.props.wrapperClasses);
+        }
+
         return (
-            <div className="question-group">
+            <div className={classes.join(' ')}>
                 <SingleQuestion
                     chatPerson="Ratko B."
                     profession="Fitness Trainer"
@@ -16,7 +22,7 @@ class QuestionGroup extends Component {
                     question="I am not losing any weight despite going to the gym twice a week. What am I doing wrong?"
                     lastMessageSender="Ratko"
                     lastAnswer="Hey Dog, what is your current training schedule? How much do you train your fitness?"
-                    link="/chat/" />
+                    link="/chat/1"/>
                 <SingleQuestion
                     chatPerson="Chris Z."
                     profession="Senior Fitness Trainer"
@@ -24,12 +30,14 @@ class QuestionGroup extends Component {
                     question="I feel often unmotivated. What should I do?"
                     lastMessageSender="You"
                     lastAnswer="Well yeah, I tried that"
-                    link="/chat/2" />
+                    link="/chat/2"/>
+                {this.props.seeAllLink &&
                 <Link to="/chat">
                     <Button className="question-group__link">See all</Button>
                 </Link>
+                }
             </div>
-        )
+        );
     }
 }
 

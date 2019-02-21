@@ -1,0 +1,13 @@
+.dashboard {
+    &__left {
+        width: 75%;
+        float: left;
+    }
+    &__right {
+        width: 25%;
+        float: right;
+    }
+    &__number {
+        font-size: 50px;
+    }
+}
