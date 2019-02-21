@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import 'react-chat-elements/dist/main.css';
 import { MessageBox, MessageList } from 'react-chat-elements';
 import Layout from '../../components/Layout/Layout';
-import Header from '../../components/Header/Header';
 import ChatHeadlineIcon from '../ChatHeadlineIcon/ChatHeadlineIcon';
 import ChatInput from '../ChatInput/ChatInput';
 import ScheduleImage from '../../assets/images/schedule.png';
+import Header from '../Header/Header';
 
 class ConversationOne extends Component {
     render() {
@@ -37,7 +37,7 @@ class ConversationOne extends Component {
                                 text: 'Yes, one second ...',
                                 date: new Date('21/February/2019'),
                             },
-                        ]}/>
+                        ]} />
                     <MessageBox
                         position={'left'}
                         type={'photo'}

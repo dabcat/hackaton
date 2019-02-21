@@ -4,7 +4,7 @@ import QuestionGroup from '../QuestionGroup/QuestionGroup';
 import './Dashboard.scss';
 
 import Layout from '../../components/Layout/Layout';
-import Header from '../../components/Header/Header';
+import Header from '../Header/Header';
 import QuestionInfoNumbers from '../QuestionInfoNumbers/QuestionInfoNumbers';
 import { Row } from 'react-bootstrap';
 class Dashboard extends Component {
@@ -15,7 +15,7 @@ class Dashboard extends Component {
                 <Header></Header>
                 <Headline>Recent conversations</Headline>
                 <Row>
-                    <QuestionGroup wrapperClasses="col-lg-9" seeAllLink={true}/>
+                    <QuestionGroup wrapperClasses="col-lg-9" seeAllLink={true} />
                     <QuestionInfoNumbers />
                 </Row>
             </Layout>

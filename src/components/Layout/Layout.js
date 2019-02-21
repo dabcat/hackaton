@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
     return (
         <Container>
             <Row>
-                <Col>{children}</Col>
+                <Col md={12}>{children}</Col>
             </Row>
         </Container>
     );
