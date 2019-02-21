@@ -1,0 +1,28 @@
+.home {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+
+    &__form-wrapper {
+        width: 100%;
+        max-width: 420px;
+        padding: 15px;
+        margin: auto;
+
+        button {
+            width: 100%;
+        }
+
+        .jumbotron {
+            background: white;
+            padding: 0;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+    }
+}
