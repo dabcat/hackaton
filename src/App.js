@@ -11,16 +11,17 @@ import ConversationOne from './containers/ConversationOne/ConversationOne';
 import ConversationTwo from './containers/ConversationTwo/ConversationTwo';
 
 class App extends Component {
+
   render() {
     return (
       <Router>
-          <div className="App">
-            <Route exact path="/" component={Home} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route exact path="/chat" component={Chat} />
-            <Route path="/chat/1" component={ConversationOne}  />
-            <Route path="/chat/2" component={ConversationTwo}  />
-          </div>
+        <div className="App">
+          <Route exact path="/" component={Home} />
+          <Route path="/dashboard" component={Dashboard} />
+          <Route exact path="/chat" component={Chat} />
+          <Route path="/chat/1" component={ConversationOne} />
+          <Route path="/chat/2" component={ConversationTwo} />
+        </div>
       </Router>
     );
   }

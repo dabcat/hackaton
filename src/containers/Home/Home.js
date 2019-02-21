@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { Alert, Button, Form, Jumbotron } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { Button, Form, Jumbotron, Alert } from 'react-bootstrap';
 import InputField from '../../components/InputField/InputField';
 import Api from '../../services/Api';
+import { actionGetUser, actionLoginUser, actionLoginError } from './actions';
 import './Home.scss';
 import logo from '../../assets/images/fullLogo.png';
 
@@ -10,18 +12,17 @@ const ApiInit = Api();
 class Home extends Component {
 
     componentDidMount() {
-        this.setState({
-            user: null,
-            error: null,
-        })
+        this.setState({ user: [this.props.dispatch(actionGetUser())] });
     }
 
     doLogin() {
         ApiInit.login(this.state.user).then((res) => {
-            if (res) {
-                this.props.history.push('/dashboard')
-            } else {
+            if (res.message === 'User doesnt exist') {
+                this.props.dispatch(actionLoginError());
                 this.setState({ error: 'User not found!' })
+            } else {
+                this.props.dispatch(actionLoginUser(res));
+                this.props.history.push('/dashboard')
             }
         });
     }
@@ -48,7 +49,7 @@ class Home extends Component {
                         {this.state && this.state.error && (
                             <Alert variant='danger'>{this.state.error}</Alert>
                         )}
-                        <InputField type="text" placeholder="Enter email to log in" onInput={(val) => this.handleUser(val)}/>
+                        <InputField type="text" placeholder="Enter email to log in" onInput={(val) => this.handleUser(val)} />
                         <Button variant="primary" onClick={() => this.doLogin()}>Login</Button>
                     </Form>
                     {/*<Button variant="primary" onClick={() => this.getConnections()}>.!.</Button>*/}
@@ -58,4 +59,9 @@ class Home extends Component {
     }
 }
 
-export default Home;
+
+const mapState = state => ({
+    user: state.user
+});
+
+export default connect(mapState)(Home);
