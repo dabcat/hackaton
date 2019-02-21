@@ -8,6 +8,7 @@ import Home from './containers/Home/Home';
 import Dashboard from './containers/Dashboard/Dashboard';
 import Chat from './containers/Chat/Chat';
 import ConversationOne from './containers/ConversationOne/ConversationOne';
+import ConversationTwo from './containers/ConversationTwo/ConversationTwo';
 
 import Layout from './components/Layout/Layout';
 import Header from './components/Header/Header';
