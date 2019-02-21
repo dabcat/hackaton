@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './SingleQuestion.scss';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 class SingleQuestion extends Component {
     render() {
@@ -22,7 +23,7 @@ class SingleQuestion extends Component {
                         </div>
                     </div>
                     <div className="col-lg-3 single-question__link">
-                        <Button variant="success" href={this.props.link}>open Chat</Button>
+                        <Link to={this.props.link}><Button variant="success">open Chat</Button></Link>
                     </div>
                 </div>
             </div>
