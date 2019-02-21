@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import './SingleQuestion.scss';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import NextIcon from '../../assets/images/nextIconWhite.png';
 
 class SingleQuestion extends Component {
     render() {
@@ -16,7 +15,7 @@ class SingleQuestion extends Component {
                 <div className="row">
                     <div className="col-lg-9">
                         <div className=" single-question__question">
-                        <strong>Question: {this.props.question}</strong>
+                            <strong>Question: {this.props.question}</strong>
                         </div>
                         <div className="single-question__answer">
                             Last sent message:<br />
@@ -24,7 +23,7 @@ class SingleQuestion extends Component {
                         </div>
                     </div>
                     <div className="col-lg-3 single-question__link">
-                        <Link to={this.props.link}><Button variant="success">Chat <img src={NextIcon} width={10} /></Button></Link>
+                        <Link to={this.props.link}><Button variant="success">Chat</Button></Link>
                     </div>
                 </div>
             </div>

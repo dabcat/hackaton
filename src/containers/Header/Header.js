@@ -5,11 +5,12 @@ import { withRouter } from 'react-router-dom';
 import { LinkContainer } from "react-router-bootstrap";
 
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import { actionLogoutUser } from '../Home/actions';
+import { actionLogoutUser, actionGetUser } from '../Home/actions';
 
 class Header extends Component {
     componentDidMount() {
-        this.setState({ user: this.props.user })
+
+        this.setState({ user: this.props.dispatch(actionGetUser()) })
     }
 
     logoutUser = () => {

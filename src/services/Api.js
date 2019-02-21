@@ -1,5 +1,3 @@
-import { basename } from "path";
-
 const baseApi = `http://hackathon.ralekhs.com`;
 
 export default function Api() {

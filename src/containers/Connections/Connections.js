@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 
 import Api from '../../services/Api';
 
-import { Card, CardGroup, Badge, ListGroup, ListGroupItem, Form } from 'react-bootstrap';
+import { Card, CardColumns, Badge, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 
 import Headline from '../Headline/Headline';
 import Layout from '../../components/Layout/Layout';
 import Header from '../Header/Header';
-import AutocompleteItem from '../../components/AutocompleteItem/AutocompleteItem';
 
 import './Connections.scss';
 
@@ -64,7 +63,7 @@ class Connections extends Component {
                     <Header></Header>
                     <div>
                         <Headline>Your Connections</Headline>
-                        <CardGroup>
+                        <CardColumns>
                             {connections && connections.map((item, index) => {
                                 return (
                                     <Card style={{ width: '18rem' }} key={index}>
@@ -83,9 +82,10 @@ class Connections extends Component {
                                     </Card>
                                 )
                             })}
-                        </CardGroup>
+                        </CardColumns>
                     </div>
                     <div>
+                        <Headline>Search for a specialist to connect with:</Headline>
                         <AsyncTypeahead
                             ref={(typeahead) => this.typeahead = typeahead}
                             {...this.state}
@@ -93,8 +93,9 @@ class Connections extends Component {
                             minLength={3}
                             onSearch={(q) => this.handleSearch(q)}
                             onChange={(user) => this.selectedUser(user)}
-                            placeholder="Search for a user..."
+                            placeholder="example: fitness"
                         />
+                        <br /><br />
                     </div>
                 </Layout>
             )
