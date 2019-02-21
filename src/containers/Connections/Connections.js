@@ -61,6 +61,19 @@ class Connections extends Component {
             return (
                 <Layout>
                     <Header></Header>
+                    <div className="Connections__typeahead">
+                        <Headline>Search for a specialist to connect with:</Headline>
+                        <AsyncTypeahead
+                            ref={(typeahead) => this.typeahead = typeahead}
+                            {...this.state}
+                            labelKey={option => `${option.name} (${option.profile.professions})`}
+                            minLength={3}
+                            onSearch={(q) => this.handleSearch(q)}
+                            onChange={(user) => this.selectedUser(user)}
+                            placeholder="example: fitness"
+                        />
+                        <br /><br />
+                    </div>
                     <div>
                         <Headline>Your Connections</Headline>
                         <CardColumns>
@@ -84,19 +97,7 @@ class Connections extends Component {
                             })}
                         </CardColumns>
                     </div>
-                    <div>
-                        <Headline>Search for a specialist to connect with:</Headline>
-                        <AsyncTypeahead
-                            ref={(typeahead) => this.typeahead = typeahead}
-                            {...this.state}
-                            labelKey={option => `${option.name} (${option.profile.professions})`}
-                            minLength={3}
-                            onSearch={(q) => this.handleSearch(q)}
-                            onChange={(user) => this.selectedUser(user)}
-                            placeholder="example: fitness"
-                        />
-                        <br /><br />
-                    </div>
+
                 </Layout>
             )
         } else {
