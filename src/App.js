@@ -9,6 +9,7 @@ import Dashboard from './containers/Dashboard/Dashboard';
 import Chat from './containers/Chat/Chat';
 import ConversationOne from './containers/ConversationOne/ConversationOne';
 import ConversationTwo from './containers/ConversationTwo/ConversationTwo';
+import Connections from './containers/Connections/Connections';
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/dashboard" component={Dashboard} />
           <Route exact path="/chat" component={Chat} />
+          <Route exact path="/connections" component={Connections} />
           <Route path="/chat/1" component={ConversationOne} />
           <Route path="/chat/2" component={ConversationTwo} />
         </div>

@@ -3,7 +3,7 @@ import 'react-chat-elements/dist/main.css';
 import { MessageBox, MessageList } from 'react-chat-elements';
 import Headline from '../Headline/Headline';
 import Layout from '../../components/Layout/Layout';
-import Header from '../../components/Header/Header';
+import Header from '../Header/Header';
 
 class ConversationTwo extends Component {
     render() {
@@ -37,7 +37,7 @@ class ConversationTwo extends Component {
                                 text: 'Yes, one second ...',
                                 date: new Date('21/February/2019'),
                             },
-                        ]}/>
+                        ]} />
                     <MessageBox
                         position={'left'}
                         type={'photo'}
@@ -49,7 +49,7 @@ class ConversationTwo extends Component {
                                 click: false,
                                 loading: 0,
                             },
-                        }}/>
+                        }} />
                 </div>
             </Layout>
         );

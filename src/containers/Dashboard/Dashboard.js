@@ -3,7 +3,8 @@ import Headline from '../Headline/Headline';
 import QuestionGroup from '../QuestionGroup/QuestionGroup';
 
 import Layout from '../../components/Layout/Layout';
-import Header from '../../components/Header/Header';
+import Header from '../Header/Header';
+
 class Dashboard extends Component {
 
     render() {
@@ -12,7 +13,7 @@ class Dashboard extends Component {
                 <Header></Header>
                 <div>
                     <Headline>Recent conversations</Headline>
-                    <QuestionGroup/>
+                    <QuestionGroup />
                 </div>
             </Layout>
         );
