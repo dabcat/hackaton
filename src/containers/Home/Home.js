@@ -12,11 +12,18 @@ class Home extends Component {
     componentDidMount() {
         this.setState({
             user: null,
+            error: null,
         })
     }
 
     doLogin() {
-        ApiInit.login(this.state.user);
+        ApiInit.login(this.state.user).then((res) => {
+            if (res) {
+                this.props.history.push('/dashboard')
+            } else {
+                this.setState({ error: 'User not found!' })
+            }
+        });
     }
 
     getConnections() {
@@ -38,6 +45,9 @@ class Home extends Component {
                         <img src={logo} alt="" width="350" />
                     </Jumbotron>
                     <Form>
+                        {this.state && this.state.error && (
+                            <Alert variant='danger'>{this.state.error}</Alert>
+                        )}
                         <InputField type="text" placeholder="Enter email to log in" onInput={(val) => this.handleUser(val)}/>
                         <Button variant="primary" onClick={() => this.doLogin()}>Login</Button>
                     </Form>
