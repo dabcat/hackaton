@@ -1,3 +1,5 @@
+import { basename } from "path";
+
 const baseApi = `http://hackathon.ralekhs.com`;
 
 export default function Api() {
@@ -10,6 +12,19 @@ export default function Api() {
 
     function getConnections(email) {
         return fetch(`${baseApi}/connections`, postMethod({ email: email }))
+            .then(val => handleResults(val))
+            .catch((err) => handleError(err))
+    }
+
+    function searchConnections(keyword) {
+        return fetch(`${baseApi}/search?q=${keyword}`, postMethod({ q: keyword, email: 'test@mail.com' }))
+            .then(val => handleResults(val))
+            .catch((err) => handleError(err))
+    }
+
+    function connectWithUser(user) {
+        const { id } = user[0];
+        return fetch(`${baseApi}/connect/${id}`, postMethod({ email: 'test@mail.com' }))
             .then(val => handleResults(val))
             .catch((err) => handleError(err))
     }
@@ -36,6 +51,8 @@ export default function Api() {
 
     return {
         login: login,
-        getConnections: getConnections
+        getConnections: getConnections,
+        searchConnections: searchConnections,
+        connectWithUser: connectWithUser
     }
 }

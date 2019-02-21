@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Layout from '../../components/Layout/Layout';
-import Header from '../../components/Header/Header';
+import Header from '../Header/Header';
 import Headline from '../Headline/Headline';
 import QuestionGroup from '../QuestionGroup/QuestionGroup';
 import { Row } from 'react-bootstrap';
@@ -13,9 +13,9 @@ class Chat extends Component {
                 <Header></Header>
                 <Headline>All conversations</Headline>
                 <Row>
-                    <QuestionGroup wrapperClasses="col-lg-12"/>
-                    <QuestionGroup wrapperClasses="col-lg-12"/>
-                    <QuestionGroup wrapperClasses="col-lg-12"/>
+                    <QuestionGroup wrapperClasses="col-lg-12" />
+                    <QuestionGroup wrapperClasses="col-lg-12" />
+                    <QuestionGroup wrapperClasses="col-lg-12" />
                 </Row>
             </Layout>
         );

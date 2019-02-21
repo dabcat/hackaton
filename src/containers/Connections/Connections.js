@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 
 import Api from '../../services/Api';
 
-import { Card, CardGroup, Badge, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Card, CardGroup, Badge, ListGroup, ListGroupItem, Form } from 'react-bootstrap';
+import { AsyncTypeahead } from 'react-bootstrap-typeahead';
 
 import Headline from '../Headline/Headline';
 import Layout from '../../components/Layout/Layout';
 import Header from '../Header/Header';
+import AutocompleteItem from '../../components/AutocompleteItem/AutocompleteItem';
 
 import './Connections.scss';
 
@@ -16,7 +18,13 @@ const ApiInit = Api();
 class Connections extends Component {
     constructor() {
         super()
-        this.state = { connections: [] };
+        this.state = {
+            connections: [],
+            allowNew: false,
+            isLoading: false,
+            options: [],
+        };
+        this.typeahead = null;
     }
     componentDidMount() {
         const { user } = this.props;
@@ -28,9 +36,29 @@ class Connections extends Component {
         })
     }
 
+    handleSearch = (query) => {
+        this.setState({ isLoading: true });
+        ApiInit.searchConnections(query)
+            .then((res) => {
+                this.setState({
+                    isLoading: false,
+                    options: res,
+                });
+            })
+    }
+
+    selectedUser = (user) => {
+        this.typeahead.getInstance().clear();
+        ApiInit.connectWithUser(user).then(res => {
+            this.setState({ connections: this.state.connections.concat(user) })
+        })
+        console.log(user)
+    }
+
     render() {
         if (this.state) {
             const { connections } = this.state;
+
             return (
                 <Layout>
                     <Header></Header>
@@ -56,6 +84,17 @@ class Connections extends Component {
                                 )
                             })}
                         </CardGroup>
+                    </div>
+                    <div>
+                        <AsyncTypeahead
+                            ref={(typeahead) => this.typeahead = typeahead}
+                            {...this.state}
+                            labelKey={option => `${option.name} (${option.profile.professions})`}
+                            minLength={3}
+                            onSearch={(q) => this.handleSearch(q)}
+                            onChange={(user) => this.selectedUser(user)}
+                            placeholder="Search for a user..."
+                        />
                     </div>
                 </Layout>
             )
