@@ -7,7 +7,7 @@ class Dashboard extends Component {
     render() {
         return (
             <div>
-                <Headline text="Recent conversations" />
+                <Headline>Recent conversations</Headline>
                 <QuestionGroup />
             </div>
         )
