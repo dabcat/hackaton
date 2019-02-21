@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Headline from '../Headline/Headline';
 import QuestionGroup from '../QuestionGroup/QuestionGroup';
-import { Button, Form, Jumbotron } from 'react-bootstrap';
+import { Button, Form, Jumbotron, Alert } from 'react-bootstrap';
 import InputField from '../../components/InputField/InputField';
 import Api from '../../services/Api';
 
@@ -12,11 +12,18 @@ class Home extends Component {
     componentDidMount() {
         this.setState({
             user: null,
+            error: null,
         })
     }
 
     doLogin() {
-        ApiInit.login(this.state.user);
+        ApiInit.login(this.state.user).then((res) => {
+            if (res) {
+                this.props.history.push('/dashboard')
+            } else {
+                this.setState({ error: 'User not found!' })
+            }
+        });
     }
 
     getConnections() {
@@ -39,6 +46,9 @@ class Home extends Component {
                     </p>
                 </Jumbotron>
                 <Form>
+                    {this.state && this.state.error && (
+                        <Alert variant='danger'>{this.state.error}</Alert>
+                    )}
                     <InputField type="text" placeholder="Please login" onInput={(val) => this.handleUser(val)} />
                     <Button variant="primary" onClick={() => this.doLogin()}>Login</Button>
                 </Form>
