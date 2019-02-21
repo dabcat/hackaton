@@ -2,15 +2,20 @@ import React, { Component } from 'react';
 import Headline from '../Headline/Headline';
 import QuestionGroup from '../QuestionGroup/QuestionGroup';
 
+import Layout from '../../components/Layout/Layout';
+import Header from '../../components/Header/Header';
 class Dashboard extends Component {
 
     render() {
         return (
-            <div>
-                <Headline>Recent conversations</Headline>
-                <QuestionGroup />
-            </div>
-        )
+            <Layout>
+                <Header></Header>
+                <div>
+                    <Headline>Recent conversations</Headline>
+                    <QuestionGroup/>
+                </div>
+            </Layout>
+        );
     }
 }
 

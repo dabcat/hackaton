@@ -10,15 +10,10 @@ import Chat from './containers/Chat/Chat';
 import ConversationOne from './containers/ConversationOne/ConversationOne';
 import ConversationTwo from './containers/ConversationTwo/ConversationTwo';
 
-import Layout from './components/Layout/Layout';
-import Header from './components/Header/Header';
-
 class App extends Component {
   render() {
     return (
       <Router>
-        <Layout>
-          <Header></Header>
           <div className="App">
             <Route exact path="/" component={Home} />
             <Route path="/dashboard" component={Dashboard} />
@@ -26,7 +21,6 @@ class App extends Component {
             <Route path="/chat/1" component={ConversationOne}  />
             <Route path="/chat/2" component={ConversationTwo}  />
           </div>
-        </Layout>
       </Router>
     );
   }
