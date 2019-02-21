@@ -7,7 +7,7 @@ class Headline extends Component {
         return (
             <div className="headline">
                 <h2>
-                    {this.props.text}
+                    {this.props.children}
                 </h2>
             </div>
         );

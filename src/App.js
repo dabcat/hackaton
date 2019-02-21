@@ -7,6 +7,8 @@ import './App.css';
 import Home from './containers/Home/Home';
 import Dashboard from './containers/Dashboard/Dashboard';
 import Chat from './containers/Chat/Chat';
+import ConversationOne from './containers/ConversationOne/ConversationOne';
+import ConversationTwo from './containers/ConversationTwo/ConversationTwo';
 
 import Layout from './components/Layout/Layout';
 import Header from './components/Header/Header';
@@ -20,7 +22,9 @@ class App extends Component {
           <div className="App">
             <Route exact path="/" component={Home} />
             <Route path="/dashboard" component={Dashboard} />
-            <Route path="/chat" component={Chat} />
+            <Route exact path="/chat" component={Chat} />
+            <Route path="/chat/1" component={ConversationOne}  />
+            <Route path="/chat/2" component={ConversationTwo}  />
           </div>
         </Layout>
       </Router>
