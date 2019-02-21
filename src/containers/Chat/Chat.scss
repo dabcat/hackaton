@@ -1,0 +1,22 @@
+.chat-icons {
+    display: flex;
+    align-items: center;
+    color: red;
+
+    &__close-icon {
+        cursor: pointer;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: -5px;
+        right: 32px;
+    }
+    &__back-icon {
+        cursor: pointer;
+        position: absolute;
+        margin: auto;
+        top: -6px;
+        bottom: 0;
+        left: 15px;
+    }
+}

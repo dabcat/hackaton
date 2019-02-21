@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import 'react-chat-elements/dist/main.css';
 import { MessageBox, MessageList } from 'react-chat-elements';
-import Headline from '../Headline/Headline';
 import Layout from '../../components/Layout/Layout';
 import Header from '../../components/Header/Header';
+import ChatHeadlineIcon from '../ChatHeadlineIcon/ChatHeadlineIcon';
+import InputField from '../../components/InputField/InputField';
+import { Button, Form } from 'react-bootstrap';
+import ChatInput from '../ChatInput/ChatInput';
 
 class ConversationTwo extends Component {
     render() {
@@ -11,9 +14,7 @@ class ConversationTwo extends Component {
             <Layout>
                 <Header></Header>
                 <div>
-                    <Headline>
-                        Conversation with Ratko
-                    </Headline>
+                    <ChatHeadlineIcon chatPerson="Chris"/>
                     <MessageList
                         className='message-list'
                         lockable={true}
@@ -50,6 +51,7 @@ class ConversationTwo extends Component {
                                 loading: 0,
                             },
                         }}/>
+                    <ChatInput />
                 </div>
             </Layout>
         );
